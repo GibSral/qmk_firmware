@@ -26,13 +26,13 @@
 // #define OLED_FONT_WIDTH 5
 // #define OLED_FONT_HEIGHT 7
 
-#ifdef RGBLIGHT_ENABLE
+ #ifdef RGBLIGHT_ENABLE
 #   define RGBLIGHT_HUE_STEP 8
 #   define RGBLIGHT_SAT_STEP 8
 #   define RGBLIGHT_VAL_STEP 8
-#   define RGBLIGHT_SLEEP       /* the RGB lighting will be switched off when the host goes to sleep */
+// #   define RGBLIGHT_SLEEP       /* the RGB lighting will be switched off when the host goes to sleep */
 /*== all animations enable ==*/
-#   define RGBLIGHT_ANIMATIONS
+// #   define RGBLIGHT_ANIMATIONS
 /*== or choose animations to save space ==*/
 // #   define RGBLIGHT_EFFECT_BREATHING
 // #   define RGBLIGHT_EFFECT_RAINBOW_MOOD
@@ -41,9 +41,9 @@
 // #   define RGBLIGHT_EFFECT_KNIGHT
 // #   define RGBLIGHT_EFFECT_CHRISTMAS
 // #   define RGBLIGHT_EFFECT_STATIC_GRADIENT
-// #   define RGBLIGHT_EFFECT_RGB_TEST
+#   define RGBLIGHT_EFFECT_RGB_TEST
 // #   define RGBLIGHT_EFFECT_ALTERNATING
-#endif
+ #endif
 
 // If you are using an Elite C rev3 on the slave side, uncomment the lines below:
 // #define SPLIT_USB_DETECT
