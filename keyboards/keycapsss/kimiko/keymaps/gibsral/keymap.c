@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      | SDEL |  DEL | Pos1 | PgUp |  BS  |-------.    ,-------| Left | Down |  Up  |Right |      |      |
  * |------+------+------+------+------+------|   (   |    |   )   |------+------+------+------+------+------|
- * |      |      |      | End  |PgDown|  APP |-------|    |-------| COPY |INSERT|      |      | BSLS |      |
+ * |      |      |      | End  |PgDown|  APP |-------|    |-------| APP  | COPY |INSERT|      | BSLS |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *             | WIN  | LALT | LOWER | LSFT | Space /       \ Enter | RSFT | RAISE  | RALT |  BS  |
  *              `----------------------------------'         '------------------------------------'
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,   KC_F1,    KC_F2,   KC_F3,    KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
      KC_GRV,    KC_1,     KC_2,    KC_3,     KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_F12,
     _______,S_DELETE,KC_DELETE, KC_HOME,  KC_PGUP, KC_BSPC,                     KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT,XXXXXXX, XXXXXXX,
-    _______, XXXXXXX,  XXXXXXX,  KC_END,  KC_PGDN,  KC_APP,   KC_LPRN, KC_RPRN,    COPY,  INSERT, XXXXXXX, XXXXXXX, KC_NUBS, _______,
+    _______, XXXXXXX,  XXXXXXX,  KC_END,  KC_PGDN,  KC_APP,   KC_LPRN, KC_RPRN,  KC_APP,    COPY, INSERT, XXXXXXX, KC_NUBS, _______,
                         _______, _______, _______, _______,  _______, _______,  _______, _______, _______, _______
 ),
 /* RAISE
