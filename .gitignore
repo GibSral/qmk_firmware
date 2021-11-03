@@ -60,6 +60,8 @@ CMakeLists.txt
 .stfolder
 .tags
 .vscode/c_cpp_properties.json
+.vscode/settings.json
+.vscode/*
 .vscode/ipch/
 .vscode/last.sql
 .vscode/launch.json
@@ -86,3 +88,6 @@ __pycache__
 
 # Allow to exist but don't include it in the repo
 user_song_list.h
+
+.fake
+.ionide
