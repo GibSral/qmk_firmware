@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|   {   |    |   }   |------+------+------+------+------+------|
  * |        |A-TAB |   ä  |  ü   |  ö   |  ß   |-------|    |-------|  MB1 |  MB2 | MB3  |      |      |      |
  * `-------------------------------------------|       /     \      \-----------------------------------------'
- *               | WIN  | LOWER | LALT | LOWER | Space/       \ RSFT | RAISE | RALT  | RAISE | APP  |
+ *               | WIN  | LOWER | LALT | LOWER | Space/       \ MB1  | RAISE | RALT  | RAISE | APP  |
  *                `----------------------------------'         '------------------------------------'
  */
 
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TG(_GAME), TG(_GAME), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______
-  )
+  ),
 /* GAME
  * ,--------------------------------------------.                    ,----------------------------------------------.
  * |    `    |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -        |
@@ -141,14 +141,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                `----------------------------------'          '------------------------------------'
  */
 
-/** [_GAME] = LAYOUT(
+[_GAME] = LAYOUT(
     KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
     KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
     LSFT_T(KC_ESC),   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                            KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, RSFT_T(KC_QUOT),
     KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, RCTL_T(KC_ENT),
-                      KC_LGUI, LOWER, KC_LALT, LOWER, KC_SPC, RSFT_T(KC_ENT),   RAISE,   KC_RALT, RAISE, KC_APP
-)
-**/
+                      KC_LGUI, LOWER, KC_LALT, KC_Y, KC_SPC, RSFT_T(KC_ENT),   RAISE,   KC_RALT, TG(_GAME), KC_APP
+ )
 };
 
 
@@ -307,7 +306,6 @@ void render_logo(void) {
         0xA0, 0xA1, 0xA2, 0xA3, 0xA4,
         0xC0, 0xC1, 0xC2, 0xC3, 0xC4, 0};
     oled_write_P(corne_logo, false);
-    // oled_write_P(PSTR("SCHLONZ"), false);
 }
 
 void render_layer_state(void) {
