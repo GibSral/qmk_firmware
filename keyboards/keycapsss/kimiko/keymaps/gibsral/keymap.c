@@ -133,21 +133,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 /* GAME
  * ,--------------------------------------------.                    ,----------------------------------------------.
- * |    `    |   1  |   2  |   3  |   4  |   5  |                    |      |      |      |      |      |           |
+ * |    `    |   1  |   2  |   3  |   4  |   5  |                    |  F6  |  F7  |  F8  |      | F10  |   F11     |
  * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
- * |   Tab   |  F6  |   Q  |   W  |   E  |   R  |                    |      |      |      |      |      |           |
+ * |   Tab   |  F1  |   Q  |   W  |   E  |   R  |                    |      |      |      |      |      |   F12     |
  * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
  * |   ESC   |Shift |   A  |   S  |   D  |   F  |-------.    ,-------| Left | Down |  Up  |Right |      |           |
  * |---------+------+------+------+------+------|  F5   |    |  F9   |------+------+------+------+------+-----------|
- * |  LCTRL  |  F7  |   Z  |   X  |   C  |   V  |-------|    |-------|      |      |      |      |      |           |
+ * |  LCTRL  |  F2  |   Z  |   X  |   C  |   V  |-------|    |-------|      |      |      |      |      |           |
  * `--------------------------------------------|      /      \      \----------------------------------------------'
- *               | WIN  | LOWER | LALT |    F8  |Space/        \ Enter| RAISE | RALT  | RAISE | APP  |
+ *               | WIN  | LOWER | LALT |    F3  |Space/        \ Enter| RAISE | RALT  | RAISE | APP  |
  *                `----------------------------------'          '------------------------------------'
  */
 
 [_GAME] = LAYOUT(
-    KC_GRV,      KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_TAB,     KC_F6,   KC_Q,    KC_W,    KC_E,    KC_R,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_GRV,      KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_F6,   KC_F7,   KC_F8, XXXXXXX,  KC_F10,  KC_F11,
+    KC_TAB,     KC_F6,   KC_Q,    KC_W,    KC_E,    KC_R,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_F12,
     KC_ESC, KC_LSHIFT,   KC_A,    KC_S,    KC_D,    KC_F,                         KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
     KC_LCTRL,   KC_F7,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_F5,      KC_F9,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                            KC_LGUI, LOWER, KC_LALT,  KC_F8,   KC_SPC,   KC_ENT,   RAISE,   KC_RALT,   GAME, KC_APP
