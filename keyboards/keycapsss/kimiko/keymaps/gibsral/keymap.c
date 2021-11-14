@@ -133,24 +133,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 /* GAME
  * ,--------------------------------------------.                    ,----------------------------------------------.
- * |    `    |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -        |
+ * |    `    |   1  |   2  |   3  |   4  |   5  |                    |      |      |      |      |      |           |
  * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
- * |   Tab   |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  BS       |
+ * |   Tab   |  F6  |   Q  |   W  |   E  |   R  |                    |      |      |      |      |      |           |
  * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
- * |   ESC   |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '/RSHIFT |
- * |---------+------+------+------+------+------|   (   |    |    )  |------+------+------+------+------+-----------|
- * |  LCTRL  |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RCTRL/Ent  |
+ * |   ESC   |Shift |   A  |   S  |   D  |   F  |-------.    ,-------| Left | Down |  Up  |Right |      |           |
+ * |---------+------+------+------+------+------|  F5   |    |  F9   |------+------+------+------+------+-----------|
+ * |  LCTRL  |  F7  |   Z  |   X  |   C  |   V  |-------|    |-------|      |      |      |      |      |           |
  * `--------------------------------------------|      /      \      \----------------------------------------------'
- *               | WIN  | LOWER | LALT | LOWER | Space/        \ RSFT | RAISE | RALT  | RAISE | APP  |
+ *               | WIN  | LOWER | LALT |    F8  |Space/        \ Enter| RAISE | RALT  | RAISE | APP  |
  *                `----------------------------------'          '------------------------------------'
  */
 
 [_GAME] = LAYOUT(
-    KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
-    KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-    LSFT_T(KC_ESC),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                   KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, RSFT_T(KC_QUOT),
-    KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, RCTL_T(KC_ENT),
-                      KC_LGUI, LOWER, KC_LALT, KC_Y, KC_SPC, RSFT_T(KC_ENT),   RAISE,   KC_RALT, TG(_GAME), KC_APP
+    KC_GRV,      KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_TAB,     KC_F6,   KC_Q,    KC_W,    KC_E,    KC_R,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_ESC, KC_LSHIFT,   KC_A,    KC_S,    KC_D,    KC_F,                         KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
+    KC_LCTRL,   KC_F7,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_F5,      KC_F9,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                           KC_LGUI, LOWER, KC_LALT,  KC_F8,   KC_SPC,   KC_ENT,   RAISE,   KC_RALT,   GAME, KC_APP
  ),
 /* MOUSE
  * ,-------------------------------------------.                    ,-----------------------------------------.
