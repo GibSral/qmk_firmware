@@ -17,6 +17,7 @@
 
 #pragma once
 
+#define TAPPING_TERM 300
 /* Select hand configuration */
 #define MASTER_LEFT
 // #define MASTER_RIGHT
