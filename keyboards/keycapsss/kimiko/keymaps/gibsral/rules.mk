@@ -8,3 +8,4 @@ RGBLIGHT_ENABLE = no      # Enable keyboard RGB underglow
 # This does not affect QMK Macros and Layers
 LTO_ENABLE = yes
 AUTO_SHIFT_ENABLE = no
+WPM_ENABLE = no

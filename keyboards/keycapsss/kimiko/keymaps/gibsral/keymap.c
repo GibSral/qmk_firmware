@@ -45,6 +45,9 @@ enum layers {
 #define FORW LALT(KC_RIGHT)
 #define F_LOWER LT(LOWER, KC_F)
 #define J_RAISE LT(RAISE, KC_J)
+#define D_SHIFT LSFT_T(KC_D)
+#define K_SHIFT RSFT_T(KC_K)
+#define LS_ESC LSFT_T(KC_ESC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -65,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT(
     KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
     KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-    LSFT_T(KC_ESC),   KC_A,    KC_S,   KC_D, F_LOWER,    KC_G,                            KC_H, J_RAISE,    KC_K,    KC_L, KC_SCLN, RSFT_T(KC_QUOT),
+    LS_ESC,   KC_A,    KC_S,   KC_D, F_LOWER,    KC_G,                            KC_H, J_RAISE,    KC_K,    KC_L, KC_SCLN, RSFT_T(KC_QUOT),
     KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, RCTL_T(KC_ENT),
                       KC_LGUI, TG(_MOUSE), KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE,   KC_RALT, LOWER, KC_APP
 ),
@@ -135,24 +138,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 /* GAME
  * ,--------------------------------------------.                    ,----------------------------------------------.
- * |    `    |   1  |   2  |   3  |   4  |   5  |                    |  F6  |  F7  |  F8  |      | F10  |   F11     |
+ * |    `    |   1  |   2  |   3  |   4  |   5  |                    |  F5  |  F9  |  F8  |  F1  | F10  |   F11     |
  * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
- * |   Tab   |  F1  |   Q  |   W  |   E  |   R  |                    |      |      |      |      |      |   F12     |
+ * |   Tab   |  *   |   Q  |   W  |   E  |   R  |                    |   Y  |   U  |  I   |  O   |  P   |   F12     |
  * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
- * |   ESC   |Shift |   A  |   S  |   D  |   F  |-------.    ,-------| Left | Down |  Up  |Right |      |           |
- * |---------+------+------+------+------+------|  F5   |    |  F9   |------+------+------+------+------+-----------|
- * |  LCTRL  |  F2  |   Z  |   X  |   C  |   V  |-------|    |-------|      |      |      |      |      |           |
+ * |   ESC   |Shift |   A  |   S  |   D  |   F  |-------.    ,-------| Left | Down |  Up  |Right |  ;   |   '       |
+ * |---------+------+------+------+------+------|  (    |    |   )   |------+------+------+------+------+-----------|
+ * |  LCTRL  |  =   |   Z  |   X  |   C  |   V  |-------|    |-------|   N  |   M  |   <  |   >  |   /  |  RCTRL    |
  * `--------------------------------------------|      /      \      \----------------------------------------------'
- *               | WIN  | LOWER | LALT |    F3  |Space/        \ Enter| RAISE | RALT  | RAISE | APP  |
+ *               | WIN  | LOWER | LALT |   -    |Space/        \ Enter| RAISE | RALT  | RAISE | APP  |
  *                `----------------------------------'          '------------------------------------'
  */
-
 [_GAME] = LAYOUT(
-    KC_GRV,      KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_F6,   KC_F7,   KC_F8, XXXXXXX,  KC_F10,  KC_F11,
-    KC_TAB,     KC_F1,   KC_Q,    KC_W,    KC_E,    KC_R,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_F12,
-    KC_ESC, KC_LSHIFT,   KC_A,    KC_S,    KC_D,    KC_F,                         KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
-    KC_LCTRL,   KC_F2,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_F5,      KC_F9,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                           KC_LGUI, LOWER, KC_LALT,  KC_F3,   KC_SPC,   KC_ENT,   RAISE,   KC_RALT,   GAME, KC_APP
+    KC_GRV,      KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_F5,   KC_F9,   KC_F8,   KC_F1,  KC_F10,  KC_F11,
+    KC_TAB,   KC_PAST,   KC_Q,    KC_W,    KC_E,    KC_R,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_F12,
+    KC_ESC, KC_LSHIFT,   KC_A,    KC_S,    KC_D,    KC_F,                         KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_SCLN, KC_QUOT,
+    KC_LCTRL,KC_EQUAL,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
+                           KC_LGUI, LOWER, KC_LALT,KC_MINS,   KC_SPC,   KC_ENT,   RAISE,   KC_RALT,   GAME, KC_APP
  ),
 /* MOUSE
  * ,-------------------------------------------.                    ,-----------------------------------------.
@@ -370,7 +372,7 @@ void render_layer_state(void) {
         oled_write_P(PSTR("MOUSE\n"), false);
         render_space();
     } else if(layer_state_is(_GAME)) {
-        oled_write_P(PSTR("GAME\n"), false);
+        oled_write_P(PSTR(" GAME\n"), false);
         render_space();
         render_space();
     } else {
@@ -387,6 +389,7 @@ void render_status_main(void) {
     render_space();
     render_mod_status_gui_alt(get_mods()|get_oneshot_mods());
     render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
+    render_space();
 }
 
 void render_status_secondary(void) {

@@ -17,7 +17,8 @@
 
 #pragma once
 
-#define TAPPING_TERM 300
+#define TAPPING_TERM 200
+// #define SPLIT_WPM_ENABLE
 /* Select hand configuration */
 #define MASTER_LEFT
 // #define MASTER_RIGHT
