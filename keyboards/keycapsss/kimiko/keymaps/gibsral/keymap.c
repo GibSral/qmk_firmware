@@ -31,23 +31,19 @@ enum layers {
 #define LOWER MO(_LOWER)
 #define GAME TG(_GAME)
 #define MOUSE TG(_MOUSE)
+
 #define COPY LCTL(KC_INS)
 #define INSERT LSFT(KC_INS)
-#define S_DELETE LSFT(KC_DELETE)
 #define AE RALT(KC_Q)
 #define UE RALT(KC_Y)
 #define OE RALT(KC_P)
 #define SS RALT(KC_S)
-#define QUAKE LALT(KC_RBRC)
 #define A_TAB RALT(KC_TAB)
 #define C_TAB RCTL(KC_TAB)
 #define BACK LALT(KC_LEFT)
 #define FORW LALT(KC_RIGHT)
-#define F_LOWER LT(LOWER, KC_F)
-#define J_RAISE LT(RAISE, KC_J)
-#define D_SHIFT LSFT_T(KC_D)
-#define K_SHIFT RSFT_T(KC_K)
-#define LS_ESC LSFT_T(KC_ESC)
+#define F_LOWER LT(_LOWER, KC_F)
+#define J_RAISE LT(_RAISE, KC_J)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -66,10 +62,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_QWERTY] = LAYOUT(
-    KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
-    KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-    LS_ESC,   KC_A,    KC_S,   KC_D, F_LOWER,    KC_G,                            KC_H, J_RAISE,    KC_K,    KC_L, KC_SCLN, RSFT_T(KC_QUOT),
-    KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, RCTL_T(KC_ENT),
+      KC_GRV, KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
+      KC_TAB, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
+      KC_ESC, KC_A,   KC_S,    KC_D, F_LOWER,    KC_G,                            KC_H, J_RAISE,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
+    KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
                       KC_LGUI, TG(_MOUSE), KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE,   KC_RALT, LOWER, KC_APP
 ),
 
@@ -90,8 +86,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT(
     _______,   KC_F1,    KC_F2,   KC_F3,    KC_F4,    KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
      KC_GRV,    KC_1,     KC_2,    KC_3,     KC_4,     KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_F12,
-    _______,S_DELETE,KC_DELETE, KC_HOME,  KC_PGUP,KC_DELETE,                     KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT,XXXXXXX, XXXXXXX,
-    _______,   A_TAB,    A_TAB,  KC_END,  KC_PGDN,   KC_APP,   KC_LBRC,  KC_RBRC,  KC_APP,    COPY,  INSERT,    QUAKE, KC_NUBS, _______,
+    _______, _______,  _______, KC_HOME,  KC_PGUP,KC_DELETE,                     KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT,XXXXXXX, XXXXXXX,
+    _______,   A_TAB,    A_TAB,  KC_END,  KC_PGDN,  _______,  KC_LBRC,  KC_RBRC, _______,    COPY,  INSERT,  _______,KC_NUBS, _______,
                         _______, _______, _______, _______,  _______, _______,  _______, _______, _______, _______
 ),
 /* RAISE
@@ -100,20 +96,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |        |  1   |  2   |  3   |  4   |  5   |                    |  6   |  7   |  8   |  9   |   0  | F12  |
  * |--------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |        |      |  ß   |  -   |  =   | DEL  |-------.    ,-------|  ML  |  MD  |  MU  |  ML  |      |      |
+ * |        |      |  ß   |  -   |  =   | DEL  |-------.    ,-------|      |  ML  |  MD  |  MR  |      |      |
  * |--------+------+------+------+------+------|   {   |    |   }   |------+------+------+------+------+------|
- * |        |A-TAB |   ä  |  ü   |  ö   |  ß   |-------|    |-------|  MB1 |  MB2 | MB3  |      |      |      |
+ * |        |A-TAB |   ä  |  ü   |  ö   |  ß   |-------|    |-------|      |  MB1 | MB2  |  MB3 |      |      |
  * `-------------------------------------------|       /     \      \-----------------------------------------'
- *               | WIN  | LOWER | LALT | LOWER | Space/       \ MB1  | RAISE | RALT  | RAISE | APP  |
+ *               | WIN  | LOWER | LALT | LOWER | MB1  /       \ MB3  | RAISE | RALT  | RAISE | APP  |
  *                `----------------------------------'         '------------------------------------'
  */
 
 [_RAISE] = LAYOUT(
     _______,   KC_F1,   KC_F2,    KC_F3,  KC_F4,    KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-    _______,    KC_1,    KC_2,     KC_3,   KC_4,     KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_F12,
-    _______, _______,      SS,  KC_MINS, KC_EQL,KC_DELETE,                   KC_MS_L, KC_MS_L, KC_MS_U, KC_MS_R, _______, _______,
-    _______,   A_TAB,      AE,       UE,      OE,      SS, KC_LCBR, KC_RCBR, KC_BTN1, KC_BTN2, KC_MS_D, KC_BTN3, _______, _______,
-                      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    _______,    KC_1,    KC_2,     KC_3,   KC_4,     KC_5,                      KC_6,    KC_7, KC_MS_U,    KC_9,    KC_0,  KC_F12,
+    _______, _______,      SS,  KC_MINS, KC_EQL,KC_DELETE,                   XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, _______,
+    _______, _______, _______,  _______, _______, _______, KC_LCBR, KC_RCBR, XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, XXXXXXX, _______,
+                      _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______
 ),
 /* ADJUST (Press LOWER and RAISE together)
  * ,-----------------------------------------.                    ,-----------------------------------------.
