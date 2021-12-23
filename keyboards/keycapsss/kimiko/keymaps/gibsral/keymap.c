@@ -32,8 +32,8 @@ enum layers {
 #define GAME TG(_GAME)
 #define MOUSE TG(_MOUSE)
 #define M_BT_L KC_MS_BTN1
-#define M_BT_M KC_MS_BTN2
-#define B_BT_R KC_MS_BTN3
+#define M_BT_M KC_MS_BTN3
+#define B_BT_R KC_MS_BTN2
 
 #define COPY LCTL(KC_INS)
 #define INSERT LSFT(KC_INS)
