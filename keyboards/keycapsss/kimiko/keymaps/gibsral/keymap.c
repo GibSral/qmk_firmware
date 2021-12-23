@@ -31,9 +31,9 @@ enum layers {
 #define LOWER MO(_LOWER)
 #define GAME TG(_GAME)
 #define MOUSE TG(_MOUSE)
-#define M_BT_L KC_MS_BTN3
+#define M_BT_L KC_MS_BTN1
 #define M_BT_M KC_MS_BTN2
-#define B_BT_R KC_MS_BTN1
+#define B_BT_R KC_MS_BTN3
 
 #define COPY LCTL(KC_INS)
 #define INSERT LSFT(KC_INS)
@@ -101,9 +101,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |        |      |  ß   |  -   |  =   | DEL  |-------.    ,-------|      |  ML  |  MD  |  MR  |      |      |
  * |--------+------+------+------+------+------|   {   |    |   }   |------+------+------+------+------+------|
- * |        |A-TAB |   ä  |  ü   |  ö   |  ß   |-------|    |-------|      |  MB1 | MB2  |  MB3 |      |      |
+ * |        |A-TAB |   ä  |  ü   |  ö   |  ß   |-------|    |-------|      |  MBL | MBM  |  MBR |      |      |
  * `-------------------------------------------|       /     \      \-----------------------------------------'
- *               | WIN  | LOWER | LALT | LOWER | MB1  /       \ MB3  | RAISE | RALT  | RAISE | APP  |
+ *               | WIN  | LOWER | LALT | LOWER |Space /       \ Shift| RAISE | RALT  | RAISE | APP  |
  *                `----------------------------------'         '------------------------------------'
  */
 
@@ -163,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | ESC    |      |      | Pos1 | PgUp | DEL  |-------.    ,-------|      |  ML  |  MD  |  ML  |      |      |
  * |--------+------+------+------+------+------|   {   |    |   }   |------+------+------+------+------+------|
- * |        |      |      | End  |PgDown|  ß   |-------|    |-------|  MB1 |  MB2 |      |  MB3 |      |      |
+ * |        |      |      | End  |PgDown|  ß   |-------|    |-------|      |  MBL | MBM  |  MBR |      |      |
  * `-------------------------------------------|       /     \      \-----------------------------------------'
  *               | WIN  | LOWER | LALT | LOWER | MB3  /       \ MB1  | RAISE | RALT  | RAISE | APP  |
  *                `----------------------------------'         '------------------------------------'
@@ -173,8 +173,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX,   KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,                      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                    XXXXXXX,    BACK, KC_MS_U,    FORW, XXXXXXX,  KC_F12,
     _______, XXXXXXX, XXXXXXX, KC_HOME,  KC_PGUP, KC_DELETE,                  XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
-    XXXXXXX, XXXXXXX, XXXXXXX,  KC_END,  KC_PGDN, XXXXXXX,   BACK,    FORW,   KC_BTN1, KC_BTN2, XXXXXXX, KC_BTN3, _______, _______,
-                      _______, _______, _______, _______, KC_BTN3, KC_BTN1, _______, _______, _______, _______
+    XXXXXXX, XXXXXXX, XXXXXXX,  KC_END,  KC_PGDN, XXXXXXX,   BACK,    FORW,   XXXXXXX,  M_BT_L,  M_BT_M,  B_BT_R, _______, _______,
+                      _______, _______, _______, _______, B_BT_R,  M_BT_L, _______, _______, _______, _______
  )
 // Mouse VIM
 //[_MOUSE] = LAYOUT(
