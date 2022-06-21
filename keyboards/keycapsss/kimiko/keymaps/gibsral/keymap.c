@@ -24,13 +24,15 @@ enum layers {
     _RAISE,
     _ADJUST,
     _GAME,
-    _MOUSE
+    _MOUSE,
+    _DVORAK
 };
 
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
 #define GAME TG(_GAME)
 #define MOUSE TG(_MOUSE)
+#define DVORAK TG(_Dvorak)
 #define M_BT_L KC_MS_BTN1
 #define M_BT_M KC_MS_BTN3
 #define B_BT_R KC_MS_BTN2
@@ -47,6 +49,8 @@ enum layers {
 #define FORW LALT(KC_RIGHT)
 #define F_LOWER LT(_LOWER, KC_F)
 #define J_RAISE LT(_RAISE, KC_J)
+#define U_LOWER LT(_LOWER, KC_U)
+#define H_RAISE LT(_RAISE, KC_H)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -60,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |---------+------+------+------+------+------|   (   |    |    )  |------+------+------+------+------+-----------|
  * |  LCTRL  |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RCTRL/Ent  |
  * `--------------------------------------------|      /      \      \----------------------------------------------'
- *               | WIN  | Mouse | LALT | LOWER | Space/        \ RSFT | RAISE | RALT  | Mouse | APP  |
+ *               | Mouse  | WIN | LALT | LOWER | Space/        \ RSFT | RAISE | RALT  | APP | Mouse  |
  *                `----------------------------------'          '------------------------------------'
  */
 
@@ -69,9 +73,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
       KC_ESC, KC_A,   KC_S,    KC_D, F_LOWER,    KC_G,                            KC_H, J_RAISE,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
     KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
-                      KC_LGUI, TG(_MOUSE), KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE,   KC_LALT, TG(_MOUSE), KC_APP
+                      TG(_MOUSE), KC_LGUI, KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE, TG(_MOUSE),   KC_LALT, KC_APP
 ),
 
+/* DVORAK
+ * ,--------------------------------------------.                    ,----------------------------------------------.
+ * |    `    |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -        |
+ * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
+ * |   Tab   |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  BS       |
+ * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
+ * |   ESC   |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '/RSHIFT |
+ * |---------+------+------+------+------+------|   (   |    |    )  |------+------+------+------+------+-----------|
+ * |  LCTRL  |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RCTRL/Ent  |
+ * `--------------------------------------------|      /      \      \----------------------------------------------'
+ *               | Mouse  | WIN | LALT | LOWER | Space/        \ RSFT | RAISE | RALT  | APP | Mouse  |
+ *                `----------------------------------'          '------------------------------------'
+ */
+
+ [_DVORAK] = LAYOUT(
+      KC_GRV, KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
+      KC_TAB, KC_QUOT,KC_COMM,  KC_DOT, KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L, KC_BSPC,
+      KC_ESC, KC_A,   KC_O,    KC_E, U_LOWER,    KC_I,                            KC_D, H_RAISE,    KC_T,    KC_N,    KC_S, KC_SLSH,
+    KC_LCTRL, KC_SCLN,KC_Q,    KC_J,    KC_K,    KC_X,     KC_LPRN,  KC_RPRN,     KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_RCTRL,
+                      TG(_MOUSE), KC_LGUI, KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE,   KC_LALT, KC_APP, DVORAK
+),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11
@@ -122,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | MODE | HUE- | SAT- | VAL- |      |      |-------.    ,-------|      | VOL- | MUTE | VOL+ |      |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|  GAME|MOUSE |      |      |      |      |
+ * |      |      |      |      |      |      |-------|    |-------|  GAME|MOUSE |Dvorak|      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *             | WIN  | LOWER | LALT | LOWER | Space/       \ RSFT | RAISE | RALT  | RAISE | APP  |
  *              `----------------------------------'         '------------------------------------'
@@ -132,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
     RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    GAME,   MOUSE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    GAME,   MOUSE, DVORAK, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______
   ),
 /* GAME
@@ -152,7 +177,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,      KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,   KC_F5,
     KC_TAB,   KC_PAST,   KC_Q,    KC_W,    KC_E,    KC_R,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,   KC_F9,
     KC_ESC, KC_LSHIFT,   KC_A,    KC_S,    KC_D,    KC_F,                         KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_SCLN, KC_QUOT,
-    KC_LCTRL,KC_EQUAL,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
+    
+    
+    
+    fasdfKC_LCTRL,KC_EQUAL,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
                            KC_LGUI, LOWER, KC_LALT,KC_MINS,   KC_SPC,   KC_ENT,   RAISE,   KC_RALT,   GAME, KC_APP
  ),
 /* MOUSE
