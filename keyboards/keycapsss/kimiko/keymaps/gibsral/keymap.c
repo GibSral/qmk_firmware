@@ -189,7 +189,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |    `    |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  BS       |
  * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
  * |   TAB   |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '/RSHIFT |
- * |---------+------+------+------+------+------|   (   |    |    )  |------+------+------+------+------+-----------|
+ * |---------+------+------+------+------+------|   P   |    |    -  |------+------+------+------+------+-----------|
  * |  LCTRL  |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RCTRL/Ent  |
  * `--------------------------------------------|      /      \      \----------------------------------------------'
  *               | Mouse  | WIN | LALT | LOWER | Space/        \ RSFT | RAISE | RALT  | RETURN | APP |
@@ -201,8 +201,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
       KC_TAB, KC_A,   KC_S,    KC_D, 	KC_F,    KC_G,                            KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
 
-    KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
-                      TG(_MOUSE), KC_LGUI, KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE, KC_RALT, TG(_MMO), KC_APP
+    KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_P,  KC_MINS,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
+                      KC_COMM, KC_DOT, KC_LALT, KC_O, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE, KC_RALT, TG(_MMO), KC_APP
 ),
 
 /* MOUSE
