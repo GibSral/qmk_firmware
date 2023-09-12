@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
       KC_ESC, KC_A,   KC_S,    KC_D, F_LOWER,    KC_G,                            KC_H, J_RAISE,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
     KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
-                      KC_LGUI, TG(_MOUSE), KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE, KC_LALT, TG(_MOUSE), KC_APP
+                     KC_LGUI, TG(_MOUSE), KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE, KC_RALT, TG(_MOUSE), KC_APP
 ),
 
 /* DVORAK
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB, KC_QUOT,KC_COMM,  KC_DOT, KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L, KC_BSPC,
       KC_ESC, KC_A,   KC_O,    KC_E, U_LOWER,    KC_I,                            KC_D, H_RAISE,    KC_T,    KC_N,    KC_S, KC_SLSH,
     KC_LCTRL, KC_SCLN,KC_Q,    KC_J,    KC_K,    KC_X,     KC_LPRN,  KC_RPRN,     KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_RCTRL,
-                      TG(_MOUSE), KC_LGUI, KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE,   KC_LALT, KC_APP, DVORAK
+                      TG(_MOUSE), KC_LGUI, KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE,   KC_RALT, KC_APP, DVORAK
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -222,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MOUSE] = LAYOUT(
     XXXXXXX,   KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,                      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                    XXXXXXX,    BACK, KC_MS_U,    FORW, XXXXXXX,  KC_F12,
-    _______, XXXXXXX, XXXXXXX, KC_HOME,  KC_PGUP, KC_DELETE,                  XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
+    _______,KC_LSHIFT, XXXXXXX, KC_HOME,  KC_PGUP, KC_DELETE,                XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
     XXXXXXX, XXXXXXX, XXXXXXX,  KC_END,  KC_PGDN, XXXXXXX,   BACK,    FORW,   XXXXXXX,  M_BT_L,  M_BT_M,  B_BT_R, _______, _______,
                       _______, _______, _______, _______, B_BT_R,  M_BT_L, _______, _______, _______, _______
  )
