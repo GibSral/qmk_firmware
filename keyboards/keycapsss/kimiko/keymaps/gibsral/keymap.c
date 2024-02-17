@@ -53,6 +53,25 @@ enum layers {
 #define J_RAISE LT(_RAISE, KC_J)
 #define U_LOWER LT(_LOWER, KC_U)
 #define H_RAISE LT(_RAISE, KC_H)
+enum unicode_names {
+    SSS,
+    BAE,
+    SAE,
+    BOE,
+    SOE,
+    BUE,
+    SUE
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+    [SSS]  = 0x00DF,  // ß
+    [BAE] = 0x00C4,  // Ä
+    [SAE]  = 0x00E4, // ä
+    [BOE]  = 0x00D6,  // Ö
+    [SOE] = 0x00F6,  // ö
+    [BUE]  = 0x00DC, // Ü
+    [SUE]  = 0x00FC // ü
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -95,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,   KC_F1,    KC_F2,   KC_F3,    KC_F4,    KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
      KC_GRV,    KC_1,     KC_2,    KC_3,     KC_4,     KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_F12,
     _______, KC_HOME,   KC_END,KC_MINUS,   KC_EQL,KC_DELETE,                     KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT,XXXXXXX, XXXXXXX,
-    _______,  _______,      AE,      OE,       UE,       SS,  KC_LBRC,  KC_RBRC, _______,    COPY,  INSERT,  _______,KC_BSLS, _______,
+    _______, _______,XP(SAE,BAE),XP(SOE,BOE),XP(SUE,BUE), XP(SSS,SS),  KC_LBRC,  KC_RBRC, _______,    COPY,  INSERT,  _______,KC_BSLS, _______,
                         _______, _______, _______, _______,  _______, _______,  _______, _______, _______, _______
 ),
 /* RAISE
