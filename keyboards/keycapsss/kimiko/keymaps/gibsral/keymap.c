@@ -26,7 +26,7 @@ enum layers {
     _FPS,
     _MMO,
     _MOUSE,
-    _DVORAK
+    _SYMBOLS
 };
 
 enum unicode_names {
@@ -54,7 +54,7 @@ const uint32_t PROGMEM unicode_map[] = {
 #define FPS TG(_FPS)
 #define MMO TG(_MMO)
 #define MOUSE TG(_MOUSE)
-#define DVORAK TG(_DVORAK)
+#define SYMBOLS TG(_SYMBOLS)
 #define M_BT_L KC_MS_BTN1
 #define M_BT_M KC_MS_BTN3
 #define B_BT_R KC_MS_BTN2
@@ -72,8 +72,8 @@ const uint32_t PROGMEM unicode_map[] = {
 #define FORW LALT(KC_RIGHT)
 #define F_LOWER LT(_LOWER, KC_F)
 #define J_RAISE LT(_RAISE, KC_J)
-#define U_LOWER LT(_LOWER, KC_U)
-#define H_RAISE LT(_RAISE, KC_H)
+#define J_SYM LT(_SYMBOLS, KC_J)
+#define F_SYM LT(_SYMBOLS, KC_F)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT(
       KC_GRV, KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
       KC_TAB, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-      KC_ESC, KC_A,   KC_S,    KC_D, F_LOWER,    KC_G,                            KC_H, J_RAISE,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
+      KC_ESC, KC_A,   KC_S,    KC_D,   F_SYM,    KC_G,                            KC_H,   J_SYM,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
     KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
                      KC_LGUI, TG(_MOUSE), KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE, KC_RALT, TG(_MOUSE), KC_APP
 ),
@@ -158,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
     RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    FPS,   MMO, DVORAK, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    FPS,   MMO, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______
   ),
 /* FPS
@@ -224,37 +224,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,KC_LSHIFT, XXXXXXX, KC_HOME,  KC_PGUP, KC_DELETE,                XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
     XXXXXXX, XXXXXXX, XXXXXXX,  KC_END,  KC_PGDN, XXXXXXX,   BACK,    FORW,   XXXXXXX,  M_BT_L,  M_BT_M,  B_BT_R, _______, _______,
                       _______, _______, _______, _______, B_BT_R,  M_BT_L, _______, _______, _______, _______
- )
-// Mouse VIM
-//[_MOUSE] = LAYOUT(
-//    XXXXXXX,   KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,                      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-//    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                    XXXXXXX,    BACK, XXXXXXX,    FORW, XXXXXXX,  KC_F12,
-//    _______, XXXXXXX, XXXXXXX, KC_HOME,  KC_PGUP, KC_DELETE,                  KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
-//    XXXXXXX, XXXXXXX, XXXXXXX,  KC_END,  KC_PGDN, XXXXXXX,   BACK,    FORW,   KC_BTN1, KC_BTN2, XXXXXXX, KC_BTN3, _______, _______,
-//                      _______, _______, _______, _______, KC_BTN3, KC_BTN1, _______, _______, _______, _______
-// )
-    //
-/* DVORAK
- * ,--------------------------------------------.                    ,----------------------------------------------.
- * |    `    |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -        |
- * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
- * |   Tab   |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  BS       |
- * |---------+------+------+------+------+------|                    |------+------+------+------+------+-----------|
- * |   ESC   |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '/RSHIFT |
- * |---------+------+------+------+------+------|   (   |    |    )  |------+------+------+------+------+-----------|
- * |  LCTRL  |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RCTRL/Ent  |
- * `--------------------------------------------|      /      \      \----------------------------------------------'
- *               | Mouse  | WIN | LALT | LOWER | Space/        \ RSFT | RAISE | RALT  | APP | Mouse  |
- *                `----------------------------------'          '------------------------------------'
- */
-//
-// [_DVORAK] = LAYOUT(
-//      KC_GRV, KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
-//      KC_TAB, KC_QUOT,KC_COMM,  KC_DOT, KC_P,    KC_Y,                            KC_F,    KC_G,    KC_C,    KC_R,    KC_L, KC_BSPC,
-//      KC_ESC, KC_A,   KC_O,    KC_E, U_LOWER,    KC_I,                            KC_D, H_RAISE,    KC_T,    KC_N,    KC_S, KC_SLSH,
-//    KC_LCTRL, KC_SCLN,KC_Q,    KC_J,    KC_K,    KC_X,     KC_LPRN,  KC_RPRN,     KC_B,    KC_M,    KC_W,    KC_V,    KC_Z, KC_RCTRL,
-//                      TG(_MOUSE), KC_LGUI, KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE,   KC_RALT, KC_APP, DVORAK
-//),
+ ),
+[_SYMBOLS] = LAYOUT(
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, KC_PERC, KC_BSLS, KC_CIRC,  KC_DLR,  KC_AMPR,                            KC_TILD, KC_EXLM,  KC_EQL, KC_ASTR,KC_MINUS, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,     XXXXXXX,  XXXXXXX,     XXXXXXX, XXXXXXX, _______, _______, _______, _______,
+                           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+ ),
 };
 
 
