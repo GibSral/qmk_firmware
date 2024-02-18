@@ -426,6 +426,10 @@ void render_layer_state(void) {
         oled_write_P(PSTR(" MMO\n"), false);
         render_space();
         render_space();
+    } else if(layer_state_is(_SYMBOLS)) {
+        oled_write_P(PSTR(" SYM\n"), false);
+        render_space();
+        render_space();
     } else {
         oled_write_P(default_layer, false);
     }
