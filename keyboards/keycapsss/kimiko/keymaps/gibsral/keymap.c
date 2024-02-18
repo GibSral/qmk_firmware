@@ -227,7 +227,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  ),
 [_SYMBOLS] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                            XXXXXXX, KC_PLUS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX,   KC_AT, KC_HASH, XXXXXXX,  XXXXXXX,                            XXXXXXX, KC_PLUS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, KC_PERC, KC_BSLS, KC_CIRC,  KC_DLR,  KC_AMPR,                            KC_TILD, KC_EXLM,  KC_EQL, KC_ASTR,KC_MINUS, KC_BSPC,
     _______, XXXXXXX,      AE,      OE,      UE,       SS,     XXXXXXX,  XXXXXXX,     XXXXXXX, KC_MINUS, _______, _______, _______, _______,
                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
