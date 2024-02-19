@@ -76,8 +76,8 @@ const uint32_t PROGMEM unicode_map[] = {
 #define F_SYM LT(_SYMBOLS, KC_F)
 #define ALT_L ALT_T(KC_L)
 #define ALT_S ALT_T(KC_S)
-#define CTL_A CTL_T(KC_A)
-#define CTL_SCLN CTL_T(KC_SCLN)
+#define CTL_G CTL_T(KC_G)
+#define CTL_H CTL_T(KC_H)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT(
       KC_GRV, KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
       KC_TAB, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-      KC_ESC,CTL_A,  ALT_S, D_RAISE,   F_SYM,    KC_G,                            KC_H,   J_SYM, K_RAISE,   ALT_L, KC_SCLN, KC_QUOT,
+      KC_ESC, KC_A,  ALT_S, D_RAISE,   F_SYM,   CTL_G,                           CTL_H,   J_SYM, K_RAISE,   ALT_L, KC_SCLN, KC_QUOT,
     KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
                      KC_LGUI, TG(_MOUSE), KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE, KC_RALT, TG(_MOUSE), KC_APP
 ),
