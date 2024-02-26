@@ -70,10 +70,12 @@ const uint32_t PROGMEM unicode_map[] = {
 #define C_TAB RCTL(KC_TAB)
 #define BACK LALT(KC_LEFT)
 #define FORW LALT(KC_RIGHT)
-#define K_RAISE LT(_RAISE, KC_K)
-#define D_RAISE LT(_RAISE, KC_D)
-#define J_SYM LT(_SYMBOLS, KC_J)
-#define F_SYM LT(_SYMBOLS, KC_F)
+#define J_RAISE LT(_RAISE, KC_J)
+#define J_LOWER LT(_LOWER, KC_J)
+#define F_RAISE LT(_RAISE, KC_F)
+#define F_LOWER LT(_LOWER, KC_F)
+#define K_SYM LT(_SYMBOLS, KC_K)
+#define D_SYM LT(_SYMBOLS, KC_D)
 #define ALT_L ALT_T(KC_L)
 #define ALT_S ALT_T(KC_S)
 #define CTL_G CTL_T(KC_G)
@@ -98,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT(
       KC_GRV, KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
       KC_TAB, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-      KC_ESC, KC_A,  ALT_S, D_RAISE,   F_SYM,   CTL_G,                           CTL_H,   J_SYM, K_RAISE,   ALT_L, KC_SCLN, KC_QUOT,
+      KC_ESC, KC_A,   KC_S,   D_SYM, F_LOWER,    KC_G,                            KC_H, J_LOWER,   K_SYM,    KC_L, KC_SCLN, KC_QUOT,
     KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_LPRN,  KC_RPRN,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RCTRL,
                      KC_LGUI, TG(_MOUSE), KC_LALT, LOWER, LSFT_T(KC_SPC), RSFT_T(KC_ENT),   RAISE, KC_RALT, TG(_MOUSE), KC_APP
 ),
@@ -234,7 +236,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, KC_HASH,   KC_AT,  XXXXXXX,                            XXXXXXX, KC_PLUS, KC_QUOT, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, KC_PERC, KC_BSLS, KC_CIRC,  KC_DLR,  KC_AMPR,                            KC_TILD, KC_EXLM,  KC_EQL, KC_ASTR, KC_BSLS, KC_BSPC,
-    _______, XXXXXXX,      AE,      OE,      UE,       SS,     XXXXXXX,  XXXXXXX,     XXXXXXX, KC_MINUS, _______, _______, _______, _______,
+    _______, XXXXXXX,      AE,      OE,      UE,       SS,     XXXXXXX,  XXXXXXX,     XXXXXXX, KC_MINUS,  KC_LT,   KC_GT, _______, _______,
                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
  ),
 };
